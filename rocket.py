@@ -14,7 +14,10 @@ class Rocket:
         
         # Rocket's truster
         self.trust_force = 0
-        self.max_trust_force = 1.5 * (-self.weight_force)
+        self.max_trust_force = 5.5 * (-self.weight_force)
+
+    def get_height(self):
+        return self.y_pos
     
     def update(self, current_time, gas_pedal):
         # calculating the time variation since last update
@@ -57,7 +60,7 @@ def demo():
 
     rocket = Rocket(rocket_mass)
 
-    while(time <= simulation_time):
+    while (time <= simulation_time):
         height, speed, accel = rocket.update(time, pedal)
 
         height_vals.append(height)
@@ -68,7 +71,7 @@ def demo():
         # a bit simulation tests
         if (height >= 125):
             pedal = 0.0
-        elif(time >= 21.0 and time < 22.0):
+        elif (time >= 21.0 and time < 22.0):
             pedal = 1.0
         time = time + 0.01
 
