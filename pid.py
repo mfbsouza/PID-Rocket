@@ -6,15 +6,15 @@ class PID:
 		self.Ki = ki
 		self.Kd = kd
 
-		self.setpoint	   = setpoint
+		self.setpoint = setpoint
 		self.out_min_value = out_min_value
 		self.out_max_value = out_max_value
 
 		# compute variables
-		self.i_error		  = 0
-		self.output			  = 0
-		self.prev_time		  = 0
-		self.prev_error		  = 0
+		self.i_error = 0
+		self.output = 0
+		self.prev_time = 0
+		self.prev_error = 0
 	
 	def update_gains(self, kp, ki, kd):
 		self.Kp = kp
@@ -67,7 +67,7 @@ class PID:
 		
 		# remember some variables for next time
 		self.prev_error = error
-		self.prev_time	= current_time
+		self.prev_time = current_time
 
 		return self.output
 

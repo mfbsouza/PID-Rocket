@@ -9,19 +9,19 @@ def main():
 	ki = 0.0115
 
 	height_vals = []
-	speed_vals	= []
-	accel_vals	= []
-	pid_output	= []
-	setpoint	= []
-	x_vals		= []
+	speed_vals = []
+	accel_vals = []
+	pid_output = []
+	setpoint = []
+	x_vals = []
 
-	time			= 0.01
-	simulation_time = 90.0	# 90 seconds
-	rocket_mass		= 10	# 10kg
-	target_height	= 125	# 125 meters
+	time = 0.01
+	simulation_time = 90.0 # 90 seconds
+	rocket_mass = 10 # 10kg
+	target_height = 125 # 125 meters
 
-	rocket_ship		= Rocket(rocket_mass)
-	pid_controller	= PID(kp, ki, kd, target_height, 0.0, 1.0)
+	rocket_ship = Rocket(rocket_mass)
+	pid_controller = PID(kp, ki, kd, target_height, 0.0, 1.0)
 
 	while (time <= simulation_time):
 		gas_pedal = pid_controller.compute(time, rocket_ship.get_height())

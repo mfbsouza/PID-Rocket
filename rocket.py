@@ -2,10 +2,10 @@ class Rocket:
 	def __init__(self, mass) -> None:
 		
 		# intial values
-		self.y_pos		= 0
-		self.speed		= 0
-		self.accel		= 0
-		self.prev_time	= 0
+		self.y_pos = 0
+		self.speed = 0
+		self.accel = 0
+		self.prev_time = 0
 
 		# Rocket's weight force
 		self.mass = mass
@@ -49,14 +49,14 @@ def demo():
 	import matplotlib.pylab as plt
 
 	height_vals = []
-	speed_vals	= []
-	accel_vals	= []
-	x_vals		= []
-	time		= 0.0
-	pedal		= 1.0
+	speed_vals = []
+	accel_vals = []
+	x_vals = []
+	time = 0.0
+	pedal = 1.0
 
 	simulation_time = 40.0
-	rocket_mass		= 10
+	rocket_mass = 10
 
 	rocket = Rocket(rocket_mass)
 
