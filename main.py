@@ -6,7 +6,7 @@ def main():
 
 	kp = 1.5
 	kd = 2.7
-	ki = 0.0115
+	ki = 0.007
 
 	height_vals = []
 	speed_vals = []
@@ -18,7 +18,7 @@ def main():
 	time = 0.01
 	simulation_time = 90.0 # 90 seconds
 	rocket_mass = 10 # 10kg
-	target_height = 125 # 125 meters
+	target_height = 130.0 # 130 meters
 
 	rocket_ship = Rocket(rocket_mass)
 	pid_controller = PID(kp, ki, kd, target_height, 0.0, 1.0)
@@ -26,6 +26,10 @@ def main():
 	while (time <= simulation_time):
 		gas_pedal = pid_controller.compute(time, rocket_ship.get_height())
 		height, speed, accel = rocket_ship.update(time, gas_pedal)
+
+		if time >= 47.0 and time < 48.0:
+			target_height = 80.0
+			pid_controller.update_setpoint(target_height)
 
 		height_vals.append(height)
 		speed_vals.append(speed)
